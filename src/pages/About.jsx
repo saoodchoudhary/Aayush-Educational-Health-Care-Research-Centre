@@ -51,10 +51,10 @@ export default function About() {
                             <div className="relative">
                                 <div className="w-72 h-72 sm:w-96 sm:h-96 rounded-3xl overflow-hidden bg-[#005D6B]/10 border-4 border-[#005D6B]/20 shadow-xl">
                                     <ImageWithPlaceholder
-                                        src="/images/doctor.jpg"
+                                        src="/images/doctor.png"
                                         alt="Dr. Asif Azim"
                                         className="w-full h-full object-cover object-top"
-                                        placeholderText="Upload doctor.jpg to /public/images/"
+                                        placeholderText="Upload doctor.png to /public/images/"
                                     />
                                 </div>
                                 {/* Rating badge */}
