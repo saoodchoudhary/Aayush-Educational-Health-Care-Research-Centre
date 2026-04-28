@@ -7,6 +7,7 @@ import AboutSection from '@/components/landing/AboutSection';
 import FaqSection from '@/components/landing/FaqSection';
 import ContactSection from '@/components/landing/ContactSection';
 import GoogleReviews from '@/components/landing/GoogleReviews';
+import ImageWithPlaceholder from '@/components/ImageWithPlaceholder';
 
 // ── Medical Services ──────────────────────────────────────────────────────────
 // Images should be placed in /public/images/services/
@@ -174,14 +175,11 @@ export default function Home() {
                             transition={{ duration: 0.7, delay: 0.2 }}
                             className="flex-shrink-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#7ecdd5]/50 shadow-2xl bg-[#005D6B]/30"
                         >
-                            <img
+                            <ImageWithPlaceholder
                                 src="/images/doctor.jpg"
                                 alt="Dr. Asif Azim"
                                 className="w-full h-full object-cover object-top"
-                                onError={(e) => {
-                                    e.target.style.display = 'none';
-                                    e.target.parentElement.innerHTML = `<div class="w-full h-full flex flex-col items-center justify-center"><svg class="w-32 h-32 text-[#7ecdd5]/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg><p class="text-[#7ecdd5]/70 text-sm mt-2">Upload doctor.jpg<br/>to /public/images/</p></div>`;
-                                }}
+                                placeholderText="Upload doctor.jpg to /public/images/"
                             />
                         </motion.div>
                     </div>
