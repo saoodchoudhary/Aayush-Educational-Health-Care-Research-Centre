@@ -14,8 +14,8 @@ export default function ServicesGrid({ services }) {
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Our Services</h2>
-                    <p className="text-slate-500 text-lg max-w-2xl mx-auto">Click any service to learn more and see before & after results.</p>
+                    <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Our Treatments & Therapies</h2>
+                    <p className="text-slate-500 text-lg max-w-2xl mx-auto">Click any therapy to learn more about what we treat and how it works.</p>
                 </motion.div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -41,7 +41,7 @@ export default function ServicesGrid({ services }) {
                                 <div className="absolute inset-0 flex items-end p-4">
                                     <span className="text-white font-bold text-lg drop-shadow">{service.title}</span>
                                 </div>
-                                <div className="absolute top-3 right-3 bg-[#E8A524] text-white text-xs font-semibold px-2.5 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div className="absolute top-3 right-3 bg-[#005D6B] text-white text-xs font-semibold px-2.5 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                                     View Details →
                                 </div>
                             </div>
