@@ -35,10 +35,10 @@ export default function Navbar() {
                         <img
                             src="/images/logo.png"
                             alt="Dr. Asif Azim"
-                            className="h-12 w-auto flex-shrink-0"
+                            className="h-12 w-auto rounded-full flex-shrink-0"
                             onError={(e) => { e.target.style.display = 'none'; }}
                         />
-                        <div className="hidden sm:block">
+                        <div className="block">
                             <div className="text-white font-bold text-base leading-tight">Dr. Asif Azim</div>
                             <div className="text-[#7ecdd5] text-xs leading-tight">Aayush Health Care Research Centre</div>
                         </div>
