@@ -1,25 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Phone, Menu, X, Calendar } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { Phone, ChevronDown, Menu, X } from 'lucide-react';
 
-const services = [
-    { label: 'House Washing', href: '#house-washing' },
-    { label: 'Roof Cleaning', href: '#roof-cleaning' },
-    { label: 'Driveway & Concrete', href: '#driveway' },
-    { label: 'Deck & Fence', href: '#deck-fence' },
-    { label: 'Paver Sanding & Sealing', href: '#pavers' },
-    { label: 'Commercial Cleaning', href: '#commercial' },
+const navLinks = [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/Services' },
+    { label: 'About Us', href: '/About' },
+    { label: 'Gallery', href: '/Gallery' },
+    { label: 'Contact', href: '/Contact' },
 ];
 
-const locations = [
-    'Monmouth County', 'Ocean County'
-];
-
-export default function Navbar({ onOpenQuote }) {
+export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [servicesOpen, setServicesOpen] = useState(false);
-    const [locationsOpen, setLocationsOpen] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -27,77 +22,50 @@ export default function Navbar({ onOpenQuote }) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollTo = (href) => {
-        const el = document.querySelector(href);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+    useEffect(() => {
         setMobileOpen(false);
-        setServicesOpen(false);
-        setLocationsOpen(false);
-    };
-
-    const scrollToQuote = () => {
-        onOpenQuote();
-        setMobileOpen(false);
-    };
+    }, [location]);
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-[#2c2f36]/95 backdrop-blur-sm shadow-lg">
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#003d47]/98 shadow-lg' : 'bg-[#003d47]/95'} backdrop-blur-sm`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
-                    <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+                    <Link to="/" className="flex items-center gap-3 min-w-0">
                         <img
-                            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69922938c9c3fbbd85313d31/8a4566ae8_IMG_1011.jpeg"
-                            alt="Jersey Boys Soft Wash"
-                            className="h-12 w-auto"
+                            src="/images/logo.png"
+                            alt="Dr. Asif Azim"
+                            className="h-12 w-auto flex-shrink-0"
+                            onError={(e) => { e.target.style.display = 'none'; }}
                         />
-                    </a>
+                        <div className="hidden sm:block">
+                            <div className="text-white font-bold text-base leading-tight">Dr. Asif Azim</div>
+                            <div className="text-[#7ecdd5] text-xs leading-tight">Aayush Health Care Research Centre</div>
+                        </div>
+                    </Link>
 
                     {/* Desktop Nav */}
-                    <div className="hidden lg:flex items-center gap-8">
-                        <a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('#about'); }} className="text-white/80 hover:text-white text-sm font-medium transition-colors">About Us</a>
-                        
-                        {/* Services Dropdown */}
-                        <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-                            <button className="flex items-center gap-1 text-white/80 hover:text-white text-sm font-medium transition-colors">
-                                Our Services <ChevronDown className="w-4 h-4" />
-                            </button>
-                            {servicesOpen && (
-                                <div className="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50">
-                                    {services.map((s) => (
-                                        <button key={s.label} onClick={() => scrollTo(s.href)} className="w-full text-left px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition-colors">
-                                            {s.label}
-                                        </button>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Locations Dropdown */}
-                        <div className="relative" onMouseEnter={() => setLocationsOpen(true)} onMouseLeave={() => setLocationsOpen(false)}>
-                            <button className="flex items-center gap-1 text-white/80 hover:text-white text-sm font-medium transition-colors">
-                                Locations <ChevronDown className="w-4 h-4" />
-                            </button>
-                            {locationsOpen && (
-                                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50">
-                                    {locations.map((loc) => (
-                                        <div key={loc} className="px-4 py-2.5 text-sm text-slate-700">{loc}</div>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-
-                        <a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('#faq'); }} className="text-white/80 hover:text-white text-sm font-medium transition-colors">FAQ</a>
-                        <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }} className="text-white/80 hover:text-white text-sm font-medium transition-colors">Contact Us</a>
+                    <div className="hidden lg:flex items-center gap-6">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.href}
+                                to={link.href}
+                                className={`text-sm font-medium transition-colors ${location.pathname === link.href ? 'text-[#7ecdd5]' : 'text-white/80 hover:text-white'}`}
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
                     </div>
 
                     {/* CTA */}
                     <div className="hidden lg:flex items-center gap-3">
-                        <a href="tel:+17326829551" className="flex items-center gap-2 text-[#E8A524] text-sm font-medium hover:text-[#d4951f] transition-colors">
-                            <Phone className="w-4 h-4" /> (732) 682-9551
+                        <a href="tel:+917903448270" className="flex items-center gap-2 text-[#7ecdd5] text-sm font-medium hover:text-white transition-colors">
+                            <Phone className="w-4 h-4" /> +91 79034 48270
                         </a>
-                        <Button onClick={scrollToQuote} className="bg-[#E8A524] hover:bg-[#d4951f] text-white font-semibold px-5">
-                            Get a Quote
+                        <Button asChild className="bg-[#005D6B] hover:bg-[#004d59] text-white font-semibold px-5">
+                            <a href="https://wa.me/917903448270?text=I%20want%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer">
+                                <Calendar className="w-4 h-4 mr-2" /> Book Appointment
+                            </a>
                         </Button>
                     </div>
 
@@ -110,25 +78,25 @@ export default function Navbar({ onOpenQuote }) {
 
             {/* Mobile Menu */}
             {mobileOpen && (
-                <div className="lg:hidden bg-[#2c2f36]/98 backdrop-blur-sm border-t border-white/10">
+                <div className="lg:hidden bg-[#003d47]/98 backdrop-blur-sm border-t border-white/10">
                     <div className="px-4 py-6 space-y-4">
-                        <a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('#about'); }} className="block text-white/80 py-2 text-sm font-medium">About Us</a>
-                        <div>
-                            <p className="text-white/50 text-xs uppercase tracking-wider mb-2">Our Services</p>
-                            {services.map((s) => (
-                                <button key={s.label} onClick={() => scrollTo(s.href)} className="block w-full text-left text-white/80 py-2 text-sm pl-3">
-                                    {s.label}
-                                </button>
-                            ))}
-                        </div>
-                        <a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('#faq'); }} className="block text-white/80 py-2 text-sm font-medium">FAQ</a>
-                        <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }} className="block text-white/80 py-2 text-sm font-medium">Contact Us</a>
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.href}
+                                to={link.href}
+                                className={`block py-2 text-sm font-medium ${location.pathname === link.href ? 'text-[#7ecdd5]' : 'text-white/80'}`}
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
                         <div className="pt-4 flex flex-col gap-3">
-                            <a href="tel:+17326829551" className="flex items-center gap-2 text-[#E8A524] font-medium">
-                                <Phone className="w-4 h-4" /> (732) 682-9551
+                            <a href="tel:+917903448270" className="flex items-center gap-2 text-[#7ecdd5] font-medium">
+                                <Phone className="w-4 h-4" /> +91 79034 48270
                             </a>
-                            <Button onClick={scrollToQuote} className="bg-[#E8A524] hover:bg-[#d4951f] text-white font-semibold w-full">
-                                Get a Quote
+                            <Button asChild className="bg-[#005D6B] hover:bg-[#004d59] text-white font-semibold w-full">
+                                <a href="https://wa.me/917903448270?text=I%20want%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer">
+                                    <Calendar className="w-4 h-4 mr-2" /> Book Appointment
+                                </a>
                             </Button>
                         </div>
                     </div>

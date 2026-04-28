@@ -1,37 +1,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Droplets, Shield, Sparkles, Clock, Search, Leaf, Star, Users } from 'lucide-react';
+import { Heart, ShieldCheck, Star, Users, Leaf, Clock } from 'lucide-react';
 
 const reasons = [
     {
-        icon: Search,
-        title: 'No Spot Left Behind',
-        description: "We tackle the corners, crevices, and hard-to-reach areas that ordinary washers walk right past. Every inch gets our full attention."
+        icon: Heart,
+        title: 'Holistic Natural Healing',
+        description: "Dr. Asif Azim specialises in natural therapies that address the root cause of illness — not just the symptoms. Every treatment plan is personalised to the patient's needs."
     },
     {
-        icon: Leaf,
-        title: 'Plant & Lawn Protection',
-        description: "We pre-wet and carefully guard your plants, grass, and landscaping throughout every job. Your yard stays green and healthy — always."
+        icon: ShieldCheck,
+        title: 'Safe & Hygienic Practices',
+        description: "The clinic maintains the highest standards of hygiene. All cupping equipment is single-use or thoroughly sterilised, ensuring complete safety for every patient."
     },
     {
         icon: Star,
-        title: 'Exceeding Expectations',
-        description: "Good enough isn't good enough for us. We set the bar high and push past it on every project, leaving results that genuinely blow you away."
+        title: '4.9 ★ Rated by Patients',
+        description: "With 46+ Google reviews averaging 4.9 stars, our patients consistently report significant relief and long-lasting results after treatment."
     },
     {
         icon: Users,
-        title: 'Small Team, Personal Care',
-        description: "We're not a big faceless company. Every home gets our personal attention and pride — because your property matters to us."
+        title: 'Personal Doctor Attention',
+        description: "Dr. Asif personally attends every patient — listening carefully, explaining thoroughly, and building a care plan that truly works for you."
     },
     {
-        icon: Shield,
-        title: 'Fully Insured & Transparent',
-        description: "No hidden fees, no surprises. You know exactly what you're paying for, and you're covered by full insurance every step of the way."
+        icon: Leaf,
+        title: 'Ayush & Evidence-Based Care',
+        description: "Treatments are rooted in classical Ayush medicine and validated through clinical experience — combining traditional wisdom with modern understanding of the body."
     },
     {
-        icon: Sparkles,
-        title: 'Final Walkthrough Guarantee',
-        description: "Before we pack up, we walk the entire job with you. We don't leave until you're 100% satisfied with the results."
+        icon: Clock,
+        title: 'Convenient Timings',
+        description: "Evening clinic hours (2:30 pm – 9:00 pm) make it easy for working professionals and students to get treatment without disrupting their day."
     },
 ];
 
@@ -45,9 +45,9 @@ export default function AboutSection() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Why Choose Jersey Boys</h2>
+                    <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Why Choose Dr. Asif Azim?</h2>
                     <p className="text-slate-500 max-w-2xl mx-auto text-lg">
-                        We take pride in our work and treat every property as if it were our own. From the first rinse to the final walkthrough — we deliver results you'll love.
+                        Hundreds of patients have experienced lasting relief through our natural therapies. Here's what sets us apart.
                     </p>
                 </motion.div>
 
@@ -61,8 +61,8 @@ export default function AboutSection() {
                             transition={{ delay: index * 0.08 }}
                             className="flex gap-4"
                         >
-                            <div className="w-12 h-12 bg-[#E8A524]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <item.icon className="w-6 h-6 text-[#E8A524]" />
+                            <div className="w-12 h-12 bg-[#005D6B]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <item.icon className="w-6 h-6 text-[#005D6B]" />
                             </div>
                             <div>
                                 <h3 className="font-semibold text-slate-900 mb-1">{item.title}</h3>

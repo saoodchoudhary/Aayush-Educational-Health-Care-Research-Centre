@@ -4,40 +4,52 @@ import { Star, ExternalLink, X } from 'lucide-react';
 
 const reviews = [
     {
-        name: "Michael Marks",
+        name: "Matloob Ahmad",
         rating: 5,
-        text: "I recently hired Dom from Jersey Boys Soft Wash to clean my home's delicate cedar siding, and I couldn't be more impressed with the results. He handled the job with exceptional care, using their soft wash technique to gently remove dirt and grime without causing any damage. The siding looks refreshed and vibrant, truly bringing out its natural beauty in a way I didn't think was possible. Five stars all the way!",
+        text: "Excellent service with full customer satisfaction and got better results particularly in Hijama therapy, personally experienced. Highly recommend Dr. Asif Azim for natural healing treatments.",
         avatar: "M"
     },
     {
-        name: "Elaine Brophy",
+        name: "Mohd Fahim",
         rating: 5,
-        text: "I hired the Jersey Boys to power wash my house and paver patio. They were efficient, professional and took great care in moving my patio furniture. My house and patio look fantastic!! The Jersey Boys were reasonably priced for the work that they performed and were a pleasure to work with. I would definitely hire them again. They did a great job!",
-        avatar: "E"
+        text: "Jaitpur Branch mein Maine doctor Asif ke clinic par treatment liya hai. Steam bath, nadi samvedna, cupping therapy, hijama, dry cupping, dynamic cupping — mujhe bahut achcha result mila hai. Aap log bhi aayein aur yahan ka ilaaj karvayen. Shukriya Dr. Asif!",
+        avatar: "F"
     },
     {
-        name: "Gayle Koepping",
+        name: "Ashhar Alam",
         rating: 5,
-        text: "Dom did a fantastic job power washing both my side walk and home siding. So good, we hired him once again to do the backyard patio! Couldn't recommend him more. Wonderful marketing as he continued to beautify my neighbor and extended families' homes!!! Hire him without a doubt.",
-        avatar: "G"
+        text: "Best clinic for hijama. I am currently taking hijama sessions for hair and I get the result — my hair became stronger and denser than earlier. Highly recommend!",
+        avatar: "A"
     },
     {
-        name: "Nancy Farrell",
+        name: "sadaf khan",
         rating: 5,
-        text: "I used jersey boys this summer. Could not have worked harder for us. Took their time and excellent work. Would give them the highest recommendation. Siding, sidewalk, patio all done very well. Plus reasonably priced. Real pleasure to work with two hard working guys.",
-        avatar: "N"
+        text: "I had a wonderful experience with Dr. Asif Azim at Aayush Educational & Health Care Research Centre. His fire cupping therapy gave me quick relief after just one session. What touched me most was that Dr. Azim also offered prayers (dua) for my quick recovery, which made me feel truly cared for. I highly recommend this clinic to anyone seeking natural and holistic treatment.",
+        avatar: "S"
     },
     {
-        name: "Kathleen Kurth",
+        name: "KHURSHID ANWER",
         rating: 5,
-        text: "Jersey Boys were great work with on time and professional - would highly recommend them to anyone looking for power washing.",
+        text: "Great experience. Dr. Asif has good knowledge. Dr. Asif will explain to you very well about physical and mental health. The clinic is hygienic. Must visit for cupping therapy.",
         avatar: "K"
     },
     {
-        name: "Joseph Auci",
+        name: "Aamir Farhaan",
         rating: 5,
-        text: "Dominic from Jersey Boys soft wash did a fantastic job on the exterior of my house was able to get everything clean and looking brand new. From our first conversation to get a price to the job being finished, he did everything he said he would do and in just a few hours the house look new again.",
-        avatar: "J"
+        text: "Dr. Asif Azim is a great doctor! From his excellent treatment, curiosity, investigative mind and ability to connect — he's very understanding and listens to your deep concerns. Especially hijama & Marma therapy — after that feel like mind has freed from pain, stress, anxiety. I highly recommend him to everyone. A BIG Thank you to Dr. Asif sir.",
+        avatar: "A"
+    },
+    {
+        name: "Rubab Alam",
+        rating: 5,
+        text: "Well services — head cupping therapy without penetration and benefit with head cupping therapy: migraine, dandruff, hair fall control natural healing. Thanks Dr. Asif Azim.",
+        avatar: "R"
+    },
+    {
+        name: "Abdul kalam",
+        rating: 5,
+        text: "Maine knee ka treatment liya — mujhe bahut fayda hua, alhamdulillah. Main kaafi time se knee ko lekar pareshan tha. Allah pak ki rahmat mein ab kaafi behtar aaram mahsoos kar raha hoon. Shukriya Dr. Asif!",
+        avatar: "A"
     },
 ];
 
@@ -55,41 +67,47 @@ export default function GoogleReviews() {
                 <div className="flex items-center gap-2">
                     <div className="flex">
                         {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-5 h-5 fill-[#E8A524] text-[#E8A524]" />
+                            <Star key={i} className="w-5 h-5 fill-[#005D6B] text-[#005D6B]" />
                         ))}
                     </div>
-                    <span className="font-bold text-slate-900">5.0</span>
+                    <span className="font-bold text-slate-900">4.9</span>
+                    <span className="text-slate-500 text-sm">(46 reviews)</span>
                 </div>
-                <a href="https://www.google.com/search?q=Jersey+Boys+Soft+Wash" target="_blank" rel="noopener noreferrer" className="text-[#E8A524] hover:underline flex items-center gap-1 text-sm font-medium">
+                <a
+                    href="https://www.google.com/maps/place/Dr.Asif+Azim+Aayush+Educational+%26+Health+Care+Research+Centre/@28.5541265,77.2952263,17z"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#005D6B] hover:underline flex items-center gap-1 text-sm font-medium"
+                >
                     View all on Google <ExternalLink className="w-3 h-3" />
                 </a>
             </div>
 
             {/* Reviews Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
                 {reviews.map((review, index) => (
                     <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
+                        transition={{ delay: index * 0.07 }}
                         onClick={() => setSelected(review)}
-                        className="bg-white rounded-xl p-5 shadow-sm border border-slate-100 cursor-pointer hover:shadow-md hover:border-slate-200 transition-all duration-200"
+                        className="bg-white rounded-xl p-5 shadow-sm border border-slate-100 cursor-pointer hover:shadow-md hover:border-[#005D6B]/20 transition-all duration-200"
                     >
                         <div className="flex items-center gap-3 mb-3">
-                            <div className="w-10 h-10 rounded-full bg-[#5A5F6B] flex items-center justify-center text-white font-medium flex-shrink-0">
+                            <div className="w-10 h-10 rounded-full bg-[#005D6B] flex items-center justify-center text-white font-medium flex-shrink-0">
                                 {review.avatar}
                             </div>
-                            <p className="font-medium text-slate-900">{review.name}</p>
+                            <p className="font-medium text-slate-900 text-sm">{review.name}</p>
                         </div>
                         <div className="flex mb-3">
                             {[...Array(review.rating)].map((_, i) => (
-                                <Star key={i} className="w-4 h-4 fill-[#E8A524] text-[#E8A524]" />
+                                <Star key={i} className="w-4 h-4 fill-[#005D6B] text-[#005D6B]" />
                             ))}
                         </div>
                         <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">"{review.text}"</p>
-                        <p className="text-xs text-[#E8A524] font-medium mt-2">Read more →</p>
+                        <p className="text-xs text-[#005D6B] font-medium mt-2">Read more →</p>
                     </motion.div>
                 ))}
             </div>
@@ -104,14 +122,14 @@ export default function GoogleReviews() {
                                 <X className="w-4 h-4 text-slate-600" />
                             </button>
                             <div className="flex items-center gap-3 mb-4">
-                                <div className="w-12 h-12 rounded-full bg-[#5A5F6B] flex items-center justify-center text-white font-semibold text-lg">
+                                <div className="w-12 h-12 rounded-full bg-[#005D6B] flex items-center justify-center text-white font-semibold text-lg">
                                     {selected.avatar}
                                 </div>
                                 <div>
                                     <p className="font-semibold text-slate-900">{selected.name}</p>
                                     <div className="flex mt-0.5">
                                         {[...Array(selected.rating)].map((_, i) => (
-                                            <Star key={i} className="w-4 h-4 fill-[#E8A524] text-[#E8A524]" />
+                                            <Star key={i} className="w-4 h-4 fill-[#005D6B] text-[#005D6B]" />
                                         ))}
                                     </div>
                                 </div>
