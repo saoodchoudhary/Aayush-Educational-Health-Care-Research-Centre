@@ -176,10 +176,10 @@ export default function Home() {
                             className="flex-shrink-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#7ecdd5]/50 shadow-2xl bg-[#005D6B]/30"
                         >
                             <ImageWithPlaceholder
-                                src="/images/doctor.jpg"
+                                src="/images/doctor.png"
                                 alt="Dr. Asif Azim"
                                 className="w-full h-full object-cover object-top"
-                                placeholderText="Upload doctor.jpg to /public/images/"
+                                placeholderText="Upload doctor.png to /public/images/"
                             />
                         </motion.div>
                     </div>
